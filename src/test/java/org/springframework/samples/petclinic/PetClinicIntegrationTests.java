@@ -32,22 +32,22 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PetClinicIntegrationTests {
 
-        @LocalServerPort
-        int port;
+	@LocalServerPort
+	int port;
 
-        @Test
-        public void testTitle() {
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless");
-                WebDriver driver = new ChromeDriver(options);
-                driver.get("http://localhost:" + port);
+	@Test
+	public void testTitle() {
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		WebDriver driver = new ChromeDriver(options);
+		driver.get("http://localhost:" + port);
 
-                String title = driver.getTitle();
-                assertEquals("PetClinic :: a Spring Framework demonstration", title);
+		String title = driver.getTitle();
+		assertEquals("PetClinic :: a Spring Framework demonstration", title);
 
-                driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 
-                driver.quit();
-        }
+		driver.quit();
+	}
 
 }
