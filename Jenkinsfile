@@ -37,7 +37,7 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            sh './mvnw spring-boot:run'
+            sh './mvnw spring-boot:run </dev/null &>/dev/null &'
           }
         }
 
