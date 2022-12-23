@@ -33,9 +33,20 @@ pipeline {
       }
     }
 
-    stage('Integration and Performance Tests') {
-      steps {
-        sh './mvnw verify'
+    stage('QA') {
+      parallel {
+        stage('Deploy') {
+          steps {
+            sh 'java -jar target/*.jar'
+          }
+        }
+
+        stage('Integration and Performance Tests') {
+          steps {
+            sh './mvnw verify'
+          }
+        }
+
       }
     }
 
