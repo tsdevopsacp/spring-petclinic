@@ -31,6 +31,7 @@ pipeline {
     stage('Integration Test') {
       steps {
         node(label: 'test') {
+          copyArtifacts 'spring-pet-clinic/Package'
           sh './mvnw verify -P tomcat90'
         }
 
