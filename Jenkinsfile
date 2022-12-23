@@ -18,7 +18,7 @@ pipeline {
 
     stage('Unit Test') {
       steps {
-        sh './mvnw -Dtest="org.springframework.samples.petclinic.unittests.**" test'
+        sh './mvnw "-Dtest=**/petclinic/*/*.java" test'
       }
     }
 
