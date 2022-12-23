@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-        sh './mvnw clean compile'
+        sh './mvnw spring-javaformat:apply clean compile'
       }
     }
 
