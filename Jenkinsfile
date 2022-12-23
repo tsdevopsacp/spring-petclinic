@@ -35,10 +35,8 @@ pipeline {
 
     stage('Integration Test') {
       steps {
-        sh '''java -jar target/*.jar </dev/null &>/dev/null &
-echo $! > pid.file'''
+        sh 'java -jar target/*.jar'
         sh './mvnw verify -P tomcat90'
-        sh 'echo $! > pid.file'
       }
     }
 
