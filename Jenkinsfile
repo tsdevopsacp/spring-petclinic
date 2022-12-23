@@ -18,7 +18,7 @@ pipeline {
 
     stage('Unit Test') {
       steps {
-        sh './mvnw test -Dtest=!*selenium*,!*jmeter*'
+        sh './mvnw test -Dtest=!*.SeleniumIntegrationTest.java'
       }
     }
 
