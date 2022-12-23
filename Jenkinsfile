@@ -37,7 +37,7 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            sh 'java -jar target/*.jar'
+            sh './mvnw spring-boot:run'
           }
         }
 
