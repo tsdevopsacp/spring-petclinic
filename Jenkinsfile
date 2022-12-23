@@ -33,10 +33,20 @@ pipeline {
       }
     }
 
-    stage('Integration Test') {
-      steps {
-        sh 'java -jar target/*.jar'
-        sh './mvnw verify -P tomcat90'
+    stage('Deploy') {
+      parallel {
+        stage('Deploy') {
+          steps {
+            sh 'java -jar target/*.jar'
+          }
+        }
+
+        stage('Integration and Performance Tests') {
+          steps {
+            sh './mvnw verify -P tomcat90'
+          }
+        }
+
       }
     }
 
