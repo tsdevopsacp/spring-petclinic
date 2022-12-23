@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'test'
+    }
+
+  }
   stages {
     stage('Compile') {
       steps {
@@ -30,11 +35,7 @@ pipeline {
 
     stage('Integration Test') {
       steps {
-        node(label: 'test') {
-          copyArtifacts 'spring-pet-clinic/Package'
-          sh './mvnw verify -P tomcat90'
-        }
-
+        sh './mvnw verify -P tomcat90'
       }
     }
 
