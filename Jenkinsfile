@@ -18,7 +18,7 @@ pipeline {
 
     stage('Unit Test') {
       steps {
-        sh './mvnw -Dtest="jmeter/**" test'
+        sh './mvnw -Dtest="**/unittests/**" test'
       }
     }
 
