@@ -45,6 +45,7 @@ pipeline {
           steps {
             sh './mvnw verify'
             junit '**/target/surefire-reports/TEST-*.xml'
+            perfReport(sourceDataFiles: '**/target/jmeter/results/*', showTrendGraphs: true, ignoreFailedBuilds: true, ignoreUnstableBuilds: true)
           }
         }
 
