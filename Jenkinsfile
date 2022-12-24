@@ -35,7 +35,7 @@ pipeline {
 
     stage('Integration and Performance Tests') {
       steps {
-        sh './mvnw verify'
+        sh './mvnw clean verify'
       }
     }
 
