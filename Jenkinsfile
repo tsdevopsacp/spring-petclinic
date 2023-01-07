@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Compile') {
       steps {
         echo 'Jenkins Build Started'
         sh 'mvn clean compile'
