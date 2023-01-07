@@ -9,7 +9,7 @@ pipeline {
     stage('Compile') {
       steps {
         echo 'Jenkins Build Started'
-        sh 'mvnw clean compile'
+        sh 'mvn clean compile'
       }
     }
 
