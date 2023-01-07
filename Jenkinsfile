@@ -14,12 +14,6 @@ pipeline {
     }
 
     stage('Static Analysis') {
-      agent {
-        node {
-          label 'test'
-        }
-
-      }
       steps {
         sh '''mvn clean verify sonar:sonar \\
   -Dsonar.projectKey=spring-petclinic \\
