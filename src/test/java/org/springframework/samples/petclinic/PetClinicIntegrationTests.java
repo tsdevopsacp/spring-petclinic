@@ -25,12 +25,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class PetClinicIntegrationTests {
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+public class PetClinicIntegrationTests {
 
 	@LocalServerPort
 	int port;
@@ -49,6 +51,10 @@ class PetClinicIntegrationTests {
 		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 
 		driver.quit();
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(PetClinicApplication.class, args);
 	}
 
 }
