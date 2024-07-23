@@ -42,6 +42,7 @@ public class PetClinicIntegrationTests {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		options.addArguments("--remote-allow-origins=*");
+		options.addArguments("--remote-debugging-pipe");
 		WebDriver driver = new ChromeDriver(options);
 		driver.get("http://localhost:" + port);
 
